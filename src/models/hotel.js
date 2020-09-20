@@ -6,15 +6,11 @@ const hotelSchema = new mongoose.Schema({
         required: true,
         trim: true
     },
-    hotel: {
-        type: mongoose.Schema.Types.ObjectId,
-        required: true,
-    },
 }, {
-    timestamps: true
+    timestamps: true,
 });
 
-userSchema.virtual('rooms', {
+hotelSchema.virtual('rooms', {
     ref: 'Room',
     unique: true,
     localField: '_id',

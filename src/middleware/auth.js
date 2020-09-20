@@ -15,9 +15,8 @@ const auth = async (req, res, next) => {
         req.user = user;
         next();
     } catch (e) {
-        console.log(e)
         res.status(401).send({ error: 'Please authenticate.' });
     }
 }
 
-module.exports = auth
+module.exports = auth;

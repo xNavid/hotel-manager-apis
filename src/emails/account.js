@@ -8,7 +8,7 @@ const sendWelcomeEmail = (email, name) => {
         from: 'navid@mail.com',
         subject: 'Welcome',
         text: `Hello, ${name}. Your account was created successfully.`
-    })
+    });
 };
 
 module.exports = {

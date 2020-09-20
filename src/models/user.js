@@ -2,7 +2,6 @@ const mongoose = require('mongoose');
 const validator = require('validator');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const Room = require('./room');
 
 const userSchema = new mongoose.Schema({
     name: {
@@ -35,9 +34,9 @@ const userSchema = new mongoose.Schema({
     },
     age: {
         type: Number,
-        default: 0,
+        required: true,
         validate(value) {
-            if (value < 0) {
+            if (value < 18) {
                 throw new Error('Age must be a positive number');
             }
         }
@@ -48,7 +47,6 @@ const userSchema = new mongoose.Schema({
             required: true
         }
     }],
-
 }, {
     timestamps: true
 });
