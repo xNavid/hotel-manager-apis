@@ -69,7 +69,7 @@ router.post('/rooms/:id/book', auth, async (req, res) => {
         }
 
         // Check if room is already booked
-        let booking = await Booking.find({ room: room._id, to: { $gte: req.body.to }, from: { $lt: req.body.from }, active: true });
+        let booking = await Booking.find({ room: room._id, to: { $gte: req.body.to }, from: { $lte: req.body.from }, active: true });
 
         // Room is already booked 
         if (booking.length > 0) {

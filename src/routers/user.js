@@ -2,7 +2,8 @@ const express = require('express');
 const router = new express.Router();
 const User = require('../models/user');
 const auth = require('../middleware/auth');
-const { sendWelcomeEmail } = require('../emails/account')
+const { sendWelcomeEmail } = require('../emails/account');
+const Booking = require('../models/booking');
 
 // Create new user
 router.post('/users', async (req, res) => {
@@ -85,5 +86,21 @@ router.patch('/users/me', auth, async (req, res) => {
         res.status(400).send(e);
     }
 });
+
+// Get user booking data
+router.get('/users/me/bookings', auth, async (req, res) => {
+    let message;
+
+    // Find user's bookings
+    let booking = await Booking.find({ guest: req.user });
+
+    if (booking.length < 1) {
+        message = 'No bookings found.';
+        return res.status(404).send({ message });
+    }
+
+    message = 'Booking info retreived.';
+    res.send({ message, booking });
+})
 
 module.exports = router;
