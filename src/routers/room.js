@@ -4,18 +4,6 @@ const auth = require('../middleware/auth');
 const Room = require('../models/room');
 const Booking = require('../models/booking');
 
-// Create a new room record (for testing purposes)
-router.post('/rooms', auth, async (req, res) => {
-    const room = new Room (req.body);
-    let message;
-    try {
-        await room.save();
-        res.status(201).send({ message, room });
-    } catch (e) {
-        res.status(400).send(e);
-    }
-});
-
 // Get a single room by id
 router.get('/rooms/:id', auth, async (req, res) => {
     const _id = req.params.id;
