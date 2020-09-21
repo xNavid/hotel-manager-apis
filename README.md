@@ -1,6 +1,13 @@
 # Hotel Manager APIs
 An express application containing basic REST APIs for a hotel manager app.
 
+## Links
+**Project URL**: https://navid-hotel-manager-apis.herokuapp.com
+
+*note that the link provided is just for apis use the postman docs to *
+
+**Documentation**: https://documenter.getpostman.com/view/6476499/TVKBZyVT
+
 ## Installation
 ```
 // Clone the project
@@ -34,10 +41,3 @@ or
 npm run dev
 
 ```
-
-
-**Project URL**: https://navid-hotel-manager-apis.herokuapp.com
-
-*note that the link provided is just for apis use the postman docs to *
-
-**Documentation**: https://documenter.getpostman.com/view/6476499/TVKBZyVT
